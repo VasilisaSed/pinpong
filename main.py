@@ -4,7 +4,7 @@ from pygame import *
 FPS = 60
 window = display.set_mode((700,500))
 display.set_caption('pygame window')
-background = transform.scale(image.load('?'),(700,500))
+background = transform.scale(image.load('window.png'),(700,500))
 clock = time.Clock()
 
 
@@ -44,9 +44,9 @@ class Ball(GameSprite):
             self.speed_y *= -1
 
 
-player_1 = Player('?', 300, 20, 100, 20, 5)
-player_2 = Player('?', 300, 400, 100, 20,5)
-ball = Ball('?', 300, 250, 40, 40, 4)
+player_1 = Player('platforn.png', 300, 20, 100, 20, 5)
+player_2 = Player('platforn.png', 300, 400, 100, 20,5)
+ball = Ball('ballball.png', 300, 250, 40, 40, 4)
 
 game = True
 finish = False
