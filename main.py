@@ -32,20 +32,20 @@ class Player(GameSprite):
 
 class Ball(GameSprite):
     def __init__(self, player_im, player_x, player_y, width, height, player_speed):
-        super().__init__()
+        super().__init__(player_im, player_x, player_y, width, height, player_speed)
         self.speed_x = player_speed
         self.speed_y = player_speed
     def update(self):
         self.rect.x += self.speed_x
-        self.rect.y += self.speed_y;
+        self.rect.y += self.speed_y
         if self.rect.x <= 0 or self.rect.x >= 700 - self.width:
             self.speed_x *= -1
         if self.rect.y <= 0 or self.rect.y >= 500 - self.height:
             self.speed_y *= -1
 
 
-player_1 = Player('platforn.png', 300, 20, 100, 20, 5)
-player_2 = Player('platforn.png', 300, 400, 100, 20,5)
+player_1 = Player('platform.png', 300, 20, 100, 20, 5)
+player_2 = Player('platform.png', 300, 400, 100, 20,5)
 ball = Ball('ballball.png', 300, 250, 40, 40, 4)
 
 game = True
