@@ -25,18 +25,18 @@ class GameSprite(sprite.Sprite):
 class Player(GameSprite):
     def update(self):
         keys = key.get_pressed()
-        if keys[K_DOWN] and self.rect.y > 0:
+        if  self.rect.y < 500 - self.height and keys[K_DOWN]:
+            self.rect.y += self.speed
+        if self.rect.y > 0 and keys[K_UP]:
             self.rect.y -= self.speed
-        if keys[K_UP] and self.rect.x < 700 - self.width:
-            self.rect.x += self.speed
 
 class Player_2(GameSprite):
     def update(self):
         keys = key.get_pressed()
-        if keys[K_w] and self.rect.y > 0:
-            self.rect.y -= self.speed
-        if keys[K_s] and self.rect.x < 700 - self.width:
-            self.rect.x += self.speed
+        if self.rect.y < 500 - self.height and keys[K_s]:
+            self.rect.y += self.speed
+        if self.rect.y > 0 and keys[K_w] :
+                    self.rect.y -= self.speed
 
 class Ball(GameSprite):
     def __init__(self, player_im, player_x, player_y, width, height, player_speed):
@@ -52,8 +52,8 @@ class Ball(GameSprite):
             self.speed_y *= -1
 
 
-player_1 = Player('platform.png', 300, 20, 100, 20, 5)
-player_2 = Player_2('platform.png', 300, 400, 100, 20,5)
+player_1 = Player('platform.png', 50, 20, 20, 100, 5)
+player_2 = Player_2('platform.png', 650, 400, 20, 100,5)
 ball = Ball('ballball.png', 300, 250, 40, 40, 4)
 
 game = True
